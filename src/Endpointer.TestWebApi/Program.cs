@@ -10,8 +10,3 @@ var app = builder.Build();
 app.MapEndpointer();
 
 await app.RunAsync();
-
-public partial class Program
-{
-    protected Program() { }
-}
