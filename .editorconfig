@@ -247,7 +247,7 @@ dotnet_naming_rule.parameters_should_be_camel_case.severity = warning
 dotnet_naming_rule.parameters_should_be_camel_case.symbols = parameters
 dotnet_naming_rule.parameters_should_be_camel_case.style = camel_case
 
-dotnet_naming_rule.async_methods_should_end_with_async.severity = warning
+dotnet_naming_rule.async_methods_should_end_with_async.severity = none
 dotnet_naming_rule.async_methods_should_end_with_async.symbols = async_methods
 dotnet_naming_rule.async_methods_should_end_with_async.style = async_suffix
 
@@ -319,6 +319,9 @@ dotnet_diagnostic.CA2007.severity = none
 
 # IDE0005: Remove unnecessary usings
 dotnet_diagnostic.IDE0005.severity = error
+
+# IDE0007: Use var instead of explicit type
+dotnet_diagnostic.IDE0007.severity = error
 
 # IDE0011: Add braces
 dotnet_diagnostic.IDE0011.severity = warning
