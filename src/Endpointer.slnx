@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Endpointer/Endpointer.csproj" />
+  <Project Path="Endpointer.TestWebApi/Endpointer.TestWebApi.csproj" />
+  <Project Path="Endpointer.Generator.Tests/Endpointer.Generator.Tests.csproj" />
+  <Project Path="Endpointer.IntegrationTests/Endpointer.IntegrationTests.csproj" />
+</Solution>
