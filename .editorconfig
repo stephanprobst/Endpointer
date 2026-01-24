@@ -98,7 +98,7 @@ csharp_style_var_when_type_is_apparent = true:warning
 csharp_style_var_elsewhere = true:warning
 
 # Expression-bodied members
-csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_methods = false:silent
 csharp_style_expression_bodied_constructors = false:suggestion
 csharp_style_expression_bodied_operators = when_on_single_line:suggestion
 csharp_style_expression_bodied_properties = true:suggestion
@@ -328,6 +328,9 @@ dotnet_diagnostic.IDE0007.severity = error
 
 # IDE0011: Add braces
 dotnet_diagnostic.IDE0011.severity = warning
+
+# IDE0022: Use expression body for method
+dotnet_diagnostic.IDE0022.severity = none
 
 # IDE0028: Simplify collection initialization
 dotnet_diagnostic.IDE0028.severity = warning

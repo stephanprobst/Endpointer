@@ -33,30 +33,50 @@ internal static class SourceGenerationHelper
         sb.AppendLine("#nullable enable");
         sb.AppendLine();
         sb.AppendLine("using Microsoft.AspNetCore.Routing;");
+        sb.AppendLine("using Microsoft.Extensions.DependencyInjection;");
         sb.AppendLine();
         sb.AppendLine("namespace Endpointer;");
         sb.AppendLine();
         sb.AppendLine("public static class EndpointerExtensions");
         sb.AppendLine("{");
-        sb.AppendLine("    public static IEndpointRouteBuilder MapEndpointer(this IEndpointRouteBuilder endpoints)");
-        sb.AppendLine("    {");
 
-        foreach (var endpoint in endpoints)
-        {
-            GenerateEndpointRegistration(sb, endpoint);
-        }
+        GenerateAddEndpointerMethod(sb, endpoints);
+        GenerateMapEndpointerMethod(sb, endpoints);
 
-        sb.AppendLine("        return endpoints;");
-        sb.AppendLine("    }");
         sb.AppendLine("}");
 
         return sb.ToString();
     }
 
-    private static void GenerateEndpointRegistration(StringBuilder sb, EndpointInfo info)
+    private static void GenerateAddEndpointerMethod(StringBuilder sb, ImmutableArray<EndpointInfo> endpoints)
     {
-        sb.AppendLine($"        // {info.FullyQualifiedOuterName}");
-        sb.AppendLine($"        new {info.FullyQualifiedOuterName}.{info.NestedEndpointName}().MapEndpoint(endpoints);");
+        sb.AppendLine("    public static IServiceCollection AddEndpointer(this IServiceCollection services)");
+        sb.AppendLine("    {");
+
+        foreach (var endpoint in endpoints)
+        {
+            sb.AppendLine($"        services.AddScoped<{endpoint.FullyQualifiedOuterName}>();");
+        }
+
         sb.AppendLine();
+        sb.AppendLine("        return services;");
+        sb.AppendLine("    }");
+        sb.AppendLine();
+    }
+
+    private static void GenerateMapEndpointerMethod(StringBuilder sb, ImmutableArray<EndpointInfo> endpoints)
+    {
+        sb.AppendLine("    public static IEndpointRouteBuilder MapEndpointer(this IEndpointRouteBuilder endpoints)");
+        sb.AppendLine("    {");
+
+        foreach (var endpoint in endpoints)
+        {
+            sb.AppendLine($"        // {endpoint.FullyQualifiedOuterName}");
+            sb.AppendLine($"        new {endpoint.FullyQualifiedOuterName}.{endpoint.NestedEndpointName}().MapEndpoint(endpoints);");
+            sb.AppendLine();
+        }
+
+        sb.AppendLine("        return endpoints;");
+        sb.AppendLine("    }");
     }
 }

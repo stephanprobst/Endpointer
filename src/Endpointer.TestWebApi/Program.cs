@@ -1,17 +1,9 @@
 using Endpointer;
-using Endpointer.TestWebApi.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSingleton(TimeProvider.System);
-
-builder.Services.AddScoped<GetTimeEndpoint>();
-builder.Services.AddScoped<CreateUserEndpoint>();
-builder.Services.AddScoped<GetUserEndpoint>();
-builder.Services.AddScoped<UpdateUserEndpoint>();
-builder.Services.AddScoped<DeleteUserEndpoint>();
-builder.Services.AddScoped<SearchUsersEndpoint>();
-builder.Services.AddScoped<HealthEndpoint>();
+builder.Services.AddEndpointer();
 
 var app = builder.Build();
 
