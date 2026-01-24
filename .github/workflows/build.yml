@@ -22,10 +22,10 @@ jobs:
         run: dotnet restore src/Endpointer.slnx
 
       - name: Build
-        run: dotnet build src/Endpointer.slnx --no-restore
+        run: dotnet build src/Endpointer.slnx --no-restore -c Release
 
       - name: Test
-        run: dotnet test --solution src/Endpointer.slnx --no-build
+        run: dotnet test --solution src/Endpointer.slnx --no-build -c Release
 
       - name: Pack
-        run: dotnet pack src/Endpointer/Endpointer.csproj --no-build -o ./artifacts
+        run: dotnet pack src/Endpointer/Endpointer.csproj --no-build -c Release -o ./artifacts
