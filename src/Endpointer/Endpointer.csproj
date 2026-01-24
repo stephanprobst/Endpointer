@@ -17,6 +17,9 @@
     <PackageTags>source-generator;aspnetcore;minimal-api;repr;endpoint;roslyn</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 
+    <!-- Versioning -->
+    <GenerateVersionFile>true</GenerateVersionFile>
+
     <!-- Source generator packaging -->
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <DevelopmentDependency>true</DevelopmentDependency>

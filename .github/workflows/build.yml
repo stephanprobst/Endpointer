@@ -18,6 +18,14 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      - run: dotnet build src/Endpointer.slnx
+      - name: Restore
+        run: dotnet restore src/Endpointer.slnx
 
-      - run: dotnet test --solution src/Endpointer.slnx
+      - name: Build
+        run: dotnet build src/Endpointer.slnx --no-restore
+
+      - name: Test
+        run: dotnet test --solution src/Endpointer.slnx --no-build
+
+      - name: Pack
+        run: dotnet pack src/Endpointer/Endpointer.csproj --no-build -o ./artifacts
