@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" PrivateAssets="all" />
+    <PackageReference Include="SimpleBranchVersioning" PrivateAssets="all" />
   </ItemGroup>
 
   <!-- Disable other analyzers for source generator project -->
