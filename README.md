@@ -147,6 +147,77 @@ dotnet build src/Endpointer.slnx
 dotnet test --solution src/Endpointer.slnx
 ```
 
+## Full Example
+
+A complete endpoint with request/response DTOs, dependency injection, and OpenAPI metadata:
+
+```csharp
+using Microsoft.AspNetCore.Http.HttpResults;
+
+namespace MyApi.Endpoints.Products;
+
+public class CreateProductEndpoint(IProductRepository repository, ILogger<CreateProductEndpoint> logger)
+{
+    // Request
+    public record CreateProductRequest(
+        string Name,
+        string Description,
+        decimal Price,
+        string Category);
+
+    // Response
+    public record ProductResponse(
+        int Id,
+        string Name,
+        string Description,
+        decimal Price,
+        string Category,
+        DateTimeOffset CreatedAt);
+
+    // Endpoint
+    public class Endpoint : IEndpoint
+    {
+        public void MapEndpoint(IEndpointRouteBuilder endpoints)
+        {
+            endpoints.MapPost("/products", (CreateProductEndpoint ep, CreateProductRequest request) => ep.HandleAsync(request))
+                .WithName("CreateProduct")
+                .WithTags("Products")
+                .WithSummary("Create a new product")
+                .WithDescription("Creates a new product in the catalog and returns the created product with its assigned ID.")
+                .Produces<ProductResponse>(StatusCodes.Status201Created)
+                .ProducesValidationProblem()
+                .WithOpenApi();
+        }
+    }
+
+    // Handler
+    public async Task<Results<Created<ProductResponse>, ValidationProblem>> HandleAsync(CreateProductRequest request)
+    {
+        if (request.Price < 0)
+        {
+            return TypedResults.ValidationProblem(new Dictionary<string, string[]>
+            {
+                ["Price"] = ["Price must be greater than or equal to zero."]
+            });
+        }
+
+        logger.LogInformation("Creating product {Name} in category {Category}", request.Name, request.Category);
+
+        var product = await repository.CreateAsync(request);
+
+        var response = new ProductResponse(
+            product.Id,
+            product.Name,
+            product.Description,
+            product.Price,
+            product.Category,
+            product.CreatedAt);
+
+        return TypedResults.Created($"/products/{response.Id}", response);
+    }
+}
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
