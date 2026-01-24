@@ -4,7 +4,29 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <IsRoslynComponent>true</IsRoslynComponent>
+
+    <!-- NuGet package metadata -->
+    <PackageId>Endpointer</PackageId>
+    <Title>Endpointer</Title>
+    <Description>C# source generator for ASP.NET Core Minimal APIs implementing the REPR pattern. Zero reflection, compile-time code generation.</Description>
+    <Authors>Stephan Probst</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/stephanprobst/Endpointer</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/stephanprobst/Endpointer.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>source-generator;aspnetcore;minimal-api;repr;endpoint;roslyn</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <!-- Source generator packaging -->
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />
