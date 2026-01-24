@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace Endpointer.TestWebApi.Endpoints;
 
-#pragma warning disable S2325 // REPR pattern requires instance methods
 public class DeleteUserEndpoint
 {
     public class Endpoint : IEndpoint
