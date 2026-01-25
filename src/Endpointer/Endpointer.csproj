@@ -24,11 +24,17 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <DevelopmentDependency>true</DevelopmentDependency>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+
+    <!-- Placeholder files for NuGet framework compatibility display -->
+    <None Include="build\_._" Pack="true" PackagePath="lib/net8.0" Visible="false" />
+    <None Include="build\_._" Pack="true" PackagePath="lib/net9.0" Visible="false" />
+    <None Include="build\_._" Pack="true" PackagePath="lib/net10.0" Visible="false" />
   </ItemGroup>
 
   <ItemGroup>
