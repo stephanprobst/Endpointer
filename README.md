@@ -1,6 +1,7 @@
 # Endpointer
 
 [![Build](https://github.com/stephanprobst/Endpointer/actions/workflows/build.yml/badge.svg)](https://github.com/stephanprobst/Endpointer/actions/workflows/build.yml)
+[![Coverage](https://raw.githubusercontent.com/stephanprobst/Endpointer/coverage/badge_linecoverage.svg)](https://github.com/stephanprobst/Endpointer)
 [![NuGet](https://img.shields.io/nuget/v/Endpointer.svg)](https://www.nuget.org/packages/Endpointer/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![netstandard2.0](https://img.shields.io/badge/netstandard-2.0-blue)](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
