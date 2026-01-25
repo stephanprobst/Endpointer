@@ -4,8 +4,10 @@
 [![Coverage](https://raw.githubusercontent.com/stephanprobst/Endpointer/coverage/badge_linecoverage.svg)](https://github.com/stephanprobst/Endpointer)
 [![NuGet](https://img.shields.io/nuget/v/Endpointer.svg)](https://www.nuget.org/packages/Endpointer/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![netstandard2.0](https://img.shields.io/badge/netstandard-2.0-blue)](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
 [![Roslyn](https://img.shields.io/badge/Roslyn-Source%20Generator-blueviolet)](https://docs.microsoft.com/en-us/dotnet/csharp/roslyn-sdk/)
+[![.NET 8](https://img.shields.io/badge/.NET-8.0-blue)](https://dotnet.microsoft.com/)
+[![.NET 9](https://img.shields.io/badge/.NET-9.0-blue)](https://dotnet.microsoft.com/)
+[![.NET 10](https://img.shields.io/badge/.NET-10.0-blue)](https://dotnet.microsoft.com/)
 
 A **C# source generator** for ASP.NET Core Minimal APIs implementing the **REPR (Request-Endpoint-Response) pattern**.
 
