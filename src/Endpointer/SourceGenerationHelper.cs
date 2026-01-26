@@ -58,7 +58,11 @@ internal static class SourceGenerationHelper
             sb.AppendLine($"        services.AddScoped<{endpoint.FullyQualifiedOuterName}>();");
         }
 
-        sb.AppendLine();
+        if (endpoints.Length > 0)
+        {
+            sb.AppendLine();
+        }
+
         sb.AppendLine("        return services;");
         sb.AppendLine("    }");
         sb.AppendLine();
