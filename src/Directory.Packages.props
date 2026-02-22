@@ -5,8 +5,8 @@
   <ItemGroup>
     <!-- Analyzers -->
     <PackageVersion Include="Endpointer" Version="0.1.0" />
-    <PackageVersion Include="Meziantou.Analyzer" Version="2.0.285" />
-    <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.18.0.131500" />
+    <PackageVersion Include="Meziantou.Analyzer" Version="2.0.302" />
+    <PackageVersion Include="SonarAnalyzer.CSharp" Version="10.19.0.132793" />
     <PackageVersion Include="Roslynator.Analyzers" Version="4.15.0" />
     <PackageVersion Include="AsyncFixer" Version="2.1.0" />
     <!-- Source Generator -->
@@ -15,13 +15,13 @@
     <!-- Versioning -->
     <PackageVersion Include="SimpleBranchVersioning" Version="0.6.1" />
     <!-- Testing -->
-    <PackageVersion Include="TUnit" Version="1.12.41" />
+    <PackageVersion Include="TUnit" Version="1.17.4" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Analyzer.Testing" Version="1.1.3" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.0.0" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.2" />
     <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="10.2.0" />
     <PackageVersion Include="Basic.Reference.Assemblies.Net80" Version="1.8.4" />
     <PackageVersion Include="Verify.SourceGenerators" Version="2.5.0" />
-    <PackageVersion Include="Verify.TUnit" Version="31.4.3" />
+    <PackageVersion Include="Verify.TUnit" Version="31.13.2" />
   </ItemGroup>
 </Project>
